@@ -51,7 +51,7 @@ The following scripts are used to pre-process .tif files before running TrackMat
 ### Sorting Organization Example A and B
 
 1) In the paper, Zeiss confocal is used as an example. It automatically saves the .tif file names identically to the folder they are in with a base name that you choose.
-	- Therefore, the files in the folder will have the same name as the folder with “_h#t#z#c#.tif”, (where the # stands for a number) at the end of each file to identify the phase (h#), time point (t#), z position (z#), and channel (c#) of each file. 
+	- Therefore, the files in the folder will have the same name as the folder with “_h#t#z#c#.tif”, (where the # stands for a number) at the end of each file to identify the phase (h#), time point (t#), z-position (z#), and channel (c#) of each file. 
 	- In order for this code to work, the original name of the folder must be kept, or if moved, the file folder name must be identical to the beginning of each file. 
 		- For example, in the practice folder, files are saved as “Neuron0to2_h#t#z#c#.tif”, so the folder name is “Neuron0to2”.
   
@@ -77,7 +77,7 @@ The following scripts are used to pre-process .tif files before running TrackMat
 
 3) The code turns the files gray if the is_gray parameter is set to ‘No’ and saves them into a new folder labeled with the file name and _gray_stacks one directory above (outside of the input folder) such that the original folder is never changed. 
 	- If the is_gray parameter is set to ‘Yes’, a copy of the original file is saved into a new folder one directory above.
-	- The practice set is named “Neuron0to2_gray_stacks” and has the z position folders named “Neuron0to2_1”, “Neuron0to2_2” etc.	
+	- The practice set is named “Neuron0to2_gray_stacks” and has the z-position folders named “Neuron0to2_1”, “Neuron0to2_2” etc.	
 	- Refer to [Organization Example A](#organization-example-a) for an example of how the files should be structured and [Organization Example B](#organization-example-b) for what the file structure looks like after execution.
  
 #### Organization Example A: 
@@ -150,9 +150,9 @@ The following scripts are used to pre-process .tif files before running TrackMat
 
 ### Fluorescence Extraction Organization Example C and D
 1) The “All Spots statistics” files from TrackMate should be saved in the following format:
-	- "Mean_Intensity#.csv", where # stands for the number of the z position where values came from. 
+	- "Mean_Intensity#.csv", where # stands for the number of the z-position where values came from. 
 		- For example, TrackMate “All Spots statistic” file for z-position 3 should be saved as “Mean_Intensity03.csv”. 
-		- This way, the mean intensity values in each z position can be tracked by replacing the general MEAN_INTENSITY column names with the file name “Mean_Intensity#” in the merged document.
+		- This way, the mean intensity values in each z-position can be tracked by replacing the general MEAN_INTENSITY column names with the file name “Mean_Intensity#” in the merged document.
 
 2) If running multiple neurons together, the “Mean_Intensity#.csv” files for each neuron should be saved into a folder labeled “Neuron #”, where # stands for the number of the neuron. 
 	- The first neuron in the set is always “Neuron 0”, the second is “Neuron 1” etc. [Organization Example C](#organization-example-c) and [Organization Example D](#organization-example-d) show an example of folder organization before and after execution respectively.
@@ -165,7 +165,7 @@ The following scripts are used to pre-process .tif files before running TrackMat
 	- A “results” folder can also be set to any location by setting the results_folder parameter. 
 
 4) A “Background_list.csv” file must be present in the same folder as the “Neuron #” folders. 
-	- The background_list has a column labeled “Neuron #” for each neuron and must have the background values for each z positions. The number of z positions for each neuron must equal to the number of “Mean_Intensity#.csv” files in each neuron folder. The columns must be in numerical order and must not skip values.  
+	- The background_list has a column labeled “Neuron #” for each neuron and must have the background values for each z-positions. The number of z-positions for each neuron must equal to the number of “Mean_Intensity#.csv” files in each neuron folder. The columns must be in numerical order and must not skip values.  
 
 5) Alternatively, you can run one neuron at a time using fluorescence_extraction(). This allows analysis from different folders. 
 	- Instead of a “Background_list.csv”, the values for the background are entered as a list into the background_averages parameter. 
@@ -245,10 +245,10 @@ The following scripts are used to pre-process .tif files before running TrackMat
 ### Background List File
 1) The background values are entered into an excel file that is saved as a .csv. 
 2) The excel file should have a column for each neuron labeled as “Neuron #”. Make sure there is no space after the number in the neuron, as the following "Neuron # " will show an error.
-	- Each column must contain the background values for the z positions being analyzed. 
+	- Each column must contain the background values for the z-positions being analyzed. 
 	- The number of background values must match the number of “Mean_Intensity#.csv” files in each neuron folder.
 		- For example, in "Practice 3", there are 3 neuron folders in “Analysis”, “Neuron 0” with 3 “Mean_Intensity#.csv” files, “Neuron 1” with 4 “Mean_Intensity#.csv”, and “Neuron 2” with 4 “Mean_Intensity#.csv” files. 
-		- The “Background_list.csv” would look like the following. Note, since “Neuron 1” and “Neuron 2” appear in the same z positions, the background values are the same.  
+		- The “Background_list.csv” would look like the following. Note, since “Neuron 1” and “Neuron 2” appear in the same z-positions, the background values are the same.  
 		  
 			|Neuron 0|Neuron 1|Neuron 2|
 			|--------------|---------------|---------------|
@@ -264,9 +264,9 @@ The following scripts are used to pre-process .tif files before running TrackMat
 
 #### gray_sort_tiff(*working_dir, num_z_stacks=15,num_t_position=100, channel= 'c2'*)  
   
-1) Creates a folder for each Z position.
+1) Creates a folder for each z-position.
 2) Turns images grayscale.
-3) Saves grayscale images into the correct Z-position folder.
+3) Saves grayscale images into the correct z-position folder.
   
 #### Parameters
 <dl>
@@ -284,8 +284,8 @@ The following scripts are used to pre-process .tif files before running TrackMat
 	<dd>Set the position_t to the number of timepoints in the time-lapse.</dd>
 	<dd>A number smaller than the actual number of timepoints can be used to sort less images. The first image sorted will always be timepoint 1. This method does not allow for using a subset of images that doesn’t incorporate the first image.</dd> 
 	<dt>position_z: int, default 15</dt>
-	<dd>Set the position_z to the number of z positions in the stack.</dd>
-	<dd>A number smaller than the actual number of z positions can be used to sort less images. The first image sorted will always be z position 1. This method does not allow for using a subset of images that doesn’t incorporate the first z position.</dd>
+	<dd>Set the position_z to the number of z-positions in the stack.</dd>
+	<dd>A number smaller than the actual number of z-positions can be used to sort less images. The first image sorted will always be z-position 1. This method does not allow for using a subset of images that doesn’t incorporate the first z-position.</dd>
 	<dt>channel: str, default ‘Na’</dt>
 	<dd>Set the channel if it exists. You can sort files by the channel name but only one channel at a time. The code must be separately run with each different channel name. Folders created should be edited once finished to incorporate the channel name if these are to be kept separate. If the folder name is not edited, the z-position folders will have all timepoints for all channels in them.</dd> 
 	<dd>The default parameter is set to Na. If there is no channel at the end of the name, parameter should be set "channel='Na'" (default). This is used for the following file names:</dd>
@@ -358,7 +358,7 @@ For example, in "Practice 3" there are 3 neuron folders in "Analysis": "Neuron 0
 	<dt>result_folder:  path object or file-like object, str, default ‘results’</dt>
 	<dd>Set the location the output files are saved. The default creates a results folder in the same folder that contains the "Neuron #" folders. The location can be set, and if the folder does not exist, it will be created.</dd>
 	<dt>number_of_position_t: int, default 100</dt>
-	<dd>Set the number of time points (given by the POSITION_T column in the "Mean_Intensity,#.csv" files) to be analyzed and merged for each z position. This can be set to less than the actual number of time points that are in the .csv files.</dd>
+	<dd>Set the number of time points (given by the POSITION_T column in the "Mean_Intensity,#.csv" files) to be analyzed and merged for each z-position. This can be set to less than the actual number of time points that are in the .csv files.</dd>
 	<dd>Set the actual number time points there are. For example, the number of time points is 100 which has time points 0-99 in the Mean_Intensity#.csv file. Set 100 as the number of frames.</dd>
 </dl>
 
@@ -379,7 +379,7 @@ For example, in "Practice 3" there are 3 neuron folders in "Analysis": "Neuron 0
 	<dd>This is wrong: 'C:/Users/nilabuser/Desktop/Example/Neurons_to_analyze/results/'</dd>
 	<dd>This is correct: 'C:/Users/nilabuser/Desktop/Example/Neurons_to_analyze/results’</dd>
 	<dt>position_t: int, default 999</dt>
-	<dd>Set the number of time points (also given by the POSITION_T column in the "Mean_Intensity#.csv" file) to be analyzed and merged in each z position. This can be set to less than the actual number of time points that are in the .csv files.</dd> 
+	<dd>Set the number of time points (also given by the POSITION_T column in the "Mean_Intensity#.csv" file) to be analyzed and merged in each z-position. This can be set to less than the actual number of time points that are in the .csv files.</dd> 
 	<dd>Set the actual number time points there are. For example, the number of time points is 100 which has time points 0-99 in the "Mean_Intensity#.csv" file. Set 100 as the number of frames.</dd>
 	<dt>plot_title: str, default ‘Average ∆F/F0’</dt>
 	<dd>Set the name of the title the output plot will have. This will also be the name of the .png file when it is saved.<dd>
