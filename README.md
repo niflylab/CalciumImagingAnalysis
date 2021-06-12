@@ -17,6 +17,9 @@ An open-source method for analysis of confocal calcium imaging with sparse cells
 		- [Organization Example E](#organization-example-e)
 	- [Background List File](#background-list-file)
 - [Code Documentation](#code-documentation)
+	- [Sorting](#sorting)
+	- [Fluorescence Extraction](#fluorescence-extraction)
+	- [Merging](#merging)
 
 ---
 
@@ -260,7 +263,7 @@ The following scripts are used to pre-process .tif files before running TrackMat
   
 ## Code Documentation
 
-### Sorting Code (gray_sort_tiff_1):
+### Sorting:
 
 #### gray_sort_tiff(*working_dir, num_z_stacks=15,num_t_position=100, channel= 'c2'*)  
   
@@ -296,7 +299,7 @@ The following scripts are used to pre-process .tif files before running TrackMat
 		<dd>The default is “is_gray = ‘No’” and this will turn the files grayscale for TrackMate use.</dd>
 </dl>
 
-### Fluorescence Extraction Code:
+### Fluorescence Extraction:
 #### fluorescence_extract(*working_dir, results_folder = 'results', trial_name = 'Neuron', position_t=100, background_averages=[1]*)  
   
 1) Default: Creates a “results” folder in the same directory as the folder of the neuron. The results_folder parameter can be changed to create a folder in a different location or with a different name. 
@@ -362,7 +365,7 @@ For example, in "Practice 3" there are 3 neuron folders in "Analysis": "Neuron 0
 	<dd>Set the actual number time points there are. For example, the number of time points is 100 which has time points 0-99 in the Mean_Intensity#.csv file. Set 100 as the number of frames.</dd>
 </dl>
 
-### Merging Code:
+### Merging:
 #### merge_data(*results_folder , position_t=999, plot_title= ‘Average ∆F/F0’*)  
   
 1) Creates a "merged_data" folder in the "results" folder.
