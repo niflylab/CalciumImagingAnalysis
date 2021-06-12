@@ -3,9 +3,10 @@
 """
 Created on Thu Jun  3 17:29:34 2021
 The function performs the following:
-    1)	Combines all the ∆F/F0 values for each neuron in the folder into one file. This requires specific file structure as an input. Refer to the README file.
-    2)	Calculates the average ∆F/F0 and the SEM and plots the Average ∆F/F0.
-    3)	Outputs 2 files: merged_data.csv, and Average_dF_Fo.png into a merged_data folder within the results folder. 
+    1)	Combines all the ∆F/F0 values for each neuron in the folder into one file. 
+        This requires specific file structure as an input. Refer to the README file.
+    2)	Calculates the average and SEM of ∆F/F0 and plots the average ∆F/F0 over time.
+    3)	Outputs merged_data.csv and Average_dF_Fo.png into a merged_data folder within the results folder. 
 
 @author: alisasmacbook
 """
