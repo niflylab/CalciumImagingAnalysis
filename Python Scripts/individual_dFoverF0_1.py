@@ -3,15 +3,15 @@
 """
 The fluorescence_extract() function performs the following:
     1)	Combines MEAN_INTENSITY values from the Spots Statistics TrackMate output files for a single neuron.
-    2)	Subtracts the background, finds the maximum value for each timepoint 
-    3)	Calculates the change in fluorescence (∆F/F0) and plots the ∆F/F0.
-    4)	Outputs 2 files into the set results folder: the .csv with the combined data and calculations and the plot of the 
+    2)	Subtracts the background, finds the maximal value for each timepoint 
+    3)	Calculates the change in fluorescence (∆F/F0) over time and plots the ∆F/F0.
+    4)	Outputs a .csv with the combined data and calculations and the plot of the 
         ∆F/F0 as a .png in a separate “Neuron Plots” folder within the results folder.
 
 The loop_fluorescence_extract() function performs the following:
     1)	Runs fluorescence_extract() on all the neurons in a folder. This requires specific file structure as an input. Refer to the README file
-    2)	Outputs 2 files for each neuron into the set results folder: the .csv with the combined 
-        data and calculations and the plot of the ∆F/F0 as a .png in a separate “Neuron Plots” folder within the results folder
+    2)	Outputs 2 files for each neuron into the set results folder: the .csv with the average and SEM of ∆F/F0 over time 
+        and the plot of the ∆F/F0 as a .png in a separate “Neuron Plots” folder within the results folder
 
 
 
