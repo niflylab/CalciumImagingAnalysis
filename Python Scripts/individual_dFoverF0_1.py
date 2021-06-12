@@ -28,7 +28,7 @@ def fluorescence_extract(working_dir,
                         results_folder = "results", 
                         trial_name = "Neuron", 
                         position_t=100, 
-                        background_averages=[[1]]):
+                        background_averages=[1]):
     
     os.chdir(working_dir)
     output_path = os.path.join(working_dir, 'python_files')
