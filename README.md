@@ -5,6 +5,7 @@ An open-source method for analysis of confocal calcium imaging with sparse cells
 
 ### Table of Contents
 
+- [Installation](#installation)
 - [Description](#description)
 - [Input and Output File Organization](#input-and-output-file-organization)
 	- [Sorting Organization Example A and B](#sorting-organization-example-a-and-b)
@@ -22,6 +23,12 @@ An open-source method for analysis of confocal calcium imaging with sparse cells
 	- [Merging](#merging)
 
 ---
+## Installation
+The Anaconda environment was downloaded to use these codes. Additionally these are the dependencies for this code. The following packages must be installed for the codes to work:
+
+opencv-python
+tifffile 
+imagecodecs
 
 ## Description
 
