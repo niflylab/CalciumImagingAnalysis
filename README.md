@@ -26,11 +26,7 @@ An open-source method for analysis of confocal calcium imaging with sparse cells
 ## Installation
 The Anaconda environment was downloaded to use these codes. Additionally these are the dependencies for this code. The following packages must be installed for the codes to work:
 
-opencv-python 
-
-tifffile 
-
-imagecodecs
+pip install opencv-python tifffile imagecodecs
 
 ## Description
 
