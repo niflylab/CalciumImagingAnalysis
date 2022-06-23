@@ -82,7 +82,7 @@ def fluorescence_extract(working_dir,
     
     first_neuron_POSITION_T = subtract_averages['max_value'].first_valid_index()
     Fo = max_value[first_neuron_POSITION_T]
-    dF = (max_value-Fo)/Fo
+    dF = (max_value-Fo)/abs(Fo)
     subtract_averages['dF/F0'] = dF
     file_name = os.path.splitext(filename)[0]
  
